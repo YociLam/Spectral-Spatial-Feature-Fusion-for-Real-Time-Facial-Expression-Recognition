@@ -56,7 +56,7 @@ python -c "import torch; print(torch.cuda.is_available())"
 Before training/validation, preprocess datasets into a standard image-classification directory layout: per-class subfolders under `train/`, `val/`, and optionally `test/`. For example:
 
 ```text
-e:/Github/YoloV8/data/fer13/
+./data/fer13/
 ├─ train/
 │  ├─ angry/
 │  ├─ disgust/
@@ -77,7 +77,7 @@ e:/Github/YoloV8/data/fer13/
 ```
 
 ```text
-e:/Github/YoloV8/data/affectnet/
+./data/affectnet/
 ├─ train/
 │  ├─ neutral/
 │  ├─ happy/
