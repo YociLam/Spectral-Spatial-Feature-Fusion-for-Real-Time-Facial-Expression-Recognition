@@ -51,6 +51,54 @@ python -c "import torch; print(torch.cuda.is_available())"
 - Fully compatible with Jupyter, notebooks, Spyder, and standard Python IDEs
 - Includes visualization and model tuning tools used in research
 
+## Dataset Preparation (FER13 & AffectNet)
+
+Before training/validation, preprocess datasets into a standard image-classification directory layout: per-class subfolders under `train/`, `val/`, and optionally `test/`. For example:
+
+```text
+e:/Github/YoloV8/data/fer13/
+├─ train/
+│  ├─ angry/
+│  ├─ disgust/
+│  ├─ fear/
+│  ├─ happy/
+│  ├─ neutral/
+│  ├─ sad/
+│  └─ surprise/
+├─ val/
+│  ├─ angry/
+│  └─ ...
+├─ test/               # optional
+│  ├─ angry/
+│  └─ ...
+├─ train.cache         # optional, auto-generated after first run
+├─ val.cache           # optional, auto-generated after first run
+└─ test.cache          # optional, auto-generated after first run
+```
+
+```text
+e:/Github/YoloV8/data/affectnet/
+├─ train/
+│  ├─ neutral/
+│  ├─ happy/
+│  ├─ sad/
+│  ├─ surprise/
+│  ├─ fear/
+│  ├─ disgust/
+│  └─ anger/
+├─ val/
+│  ├─ neutral/
+│  └─ ...
+├─ train.cache         # optional, auto-generated after first run
+└─ val.cache           # optional, auto-generated after first run
+```
+
+Notes:
+- Place images of each class into its corresponding subfolder (folder name = class label).
+- `*.cache` files are dataset index caches auto-generated on first run to speed up loading; you may delete them to rebuild.
+- If your task is not classification (e.g., detection/segmentation), use YOLO annotation format and directory structure instead; this repo reads classification-style datasets by default.
+
+If you need any assistance with datasets, please contact me: 4472472@gmail.com
 ## Dependency Notes
 
 Notable environment components:
